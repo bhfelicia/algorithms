@@ -1,6 +1,7 @@
 //write a function that takes a string and returns counts of each character in the string
 
 const countChars = (str) => {
+  if (!str) return null;
   str = str.toLowerCase();
   const charCount = {};
   str.split("").forEach((letter) => {
@@ -13,4 +14,4 @@ const countChars = (str) => {
   return charCount;
 };
 
-console.log(countChars("njirehuasfioeqajkapd"));
+console.log(countChars(""));
