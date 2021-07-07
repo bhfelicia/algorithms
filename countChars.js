@@ -2,16 +2,19 @@
 
 const countChars = (str) => {
   if (!str) return null;
-  str = str.toLowerCase();
+
   const charCount = {};
   str.split("").forEach((letter) => {
-    if (charCount[letter]) {
-      ++charCount[letter];
-    } else {
-      charCount[letter] = 1;
+    const char = letter.toLowerCase();
+    if (/[a-z0-9]/.test(char)) {
+      if (charCount[char]) {
+        ++charCount[char];
+      } else {
+        charCount[char] = 1;
+      }
     }
   });
   return charCount;
 };
 
-console.log(countChars(""));
+console.log(countChars("hfFDJOWE!!ekl21"));
