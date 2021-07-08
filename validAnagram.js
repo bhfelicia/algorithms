@@ -1,6 +1,7 @@
 //given two strings, write a func to determine if second string is anagram of first
 function validAnagram(str1, str2) {
   if (str1 === "" && str2 === "") return true;
+  if (str1.length !== str2.length) return false;
   const freqCount1 = {};
   const freqCount2 = {};
 
