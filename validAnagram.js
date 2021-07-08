@@ -1,3 +1,5 @@
+//Frequency counter
+
 //given two strings, write a func to determine if second string is anagram of first
 function validAnagram(str1, str2) {
   if (str1 === "" && str2 === "") return true;

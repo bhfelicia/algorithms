@@ -1,3 +1,5 @@
+//Multiple pointers
+
 //write a function that accepts a sorted array and counts unique values in array
 
 function countUnique(arr) {
