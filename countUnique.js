@@ -13,11 +13,10 @@ function countUnique(arr) {
       secondPoint++;
     } else {
       pointOne++;
-      arr.splice(pointOne, 1, arr[secondPoint]);
-      console.log(arr);
+      arr[pointOne] = arr[secondPoint];
     }
   }
   return pointOne + 1;
 }
 
-console.log(countUnique([1, 1, 1, 1, 2]));
+console.log(countUnique([-1, 1, 1, 1, 2, 3, 4, 5]));
