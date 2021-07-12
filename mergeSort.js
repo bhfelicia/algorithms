@@ -15,15 +15,23 @@ function merge(arr1, arr2) {
       j++;
     }
   }
-
-  if (i < arr1.length - 1) {
-    const remainingVals = arr1.slice(i + 1, arr1.length);
-    newArr.concat(remainingVals);
-  } else if (j < arr2.length - 1) {
-    const remaining = arr2.slice(j + 1, arr2.length);
-    newArr.concat(remaining);
+  while (i < arr1.length) {
+    newArr.push(arr1[i]);
+    i++;
   }
+  while (j < arr2.length) {
+    newArr.push(arr2[j]);
+    j++;
+  }
+  // if (i < arr1.length - 1) {
+  //   const remainingVals = arr1.slice(i + 1, arr1.length);
+  //   newArr.concat(remainingVals);
+  // }
+  // if (j < arr2.length - 1) {
+  //   const remaining = arr2.slice(j + 1, arr2.length);
+  //   newArr.concat(remaining);
+  // }
   return newArr;
 }
 
-console.log(merge([1, 2, 3, 5, 8], [0, 4, 6, 7, 8]));
+console.log(merge([100, 200], [0, 4, 6, 7, 8]));
