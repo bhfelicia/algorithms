@@ -9,7 +9,9 @@ function selectionSort(arr) {
         smallest = j;
       }
     }
-    [arr[smallest], arr[i]] = [arr[i], arr[smallest]];
+    if (i !== smallest) {
+      [arr[smallest], arr[i]] = [arr[i], arr[smallest]];
+    }
   }
   return arr;
 }
