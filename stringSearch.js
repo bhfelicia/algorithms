@@ -22,4 +22,4 @@ function stringSearch(str, substr) {
   return count;
 }
 
-console.log(stringSearch("lorie loled", "lo"));
+console.log(stringSearch("lorie loled", "pop"));
