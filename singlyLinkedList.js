@@ -40,4 +40,26 @@ class SinglyLinkedList {
     }
     return curr;
   }
+  shift() {
+    if (!this.head) return undefined;
+    const oldHead = this.head;
+    this.head = oldHead.next;
+    --this.length;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return oldHead;
+  }
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    ++this.length;
+    return this;
+  }
 }
