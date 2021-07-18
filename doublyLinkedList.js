@@ -10,7 +10,7 @@ class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
-    this.tail = 0;
+    this.length = 0;
   }
   push(val) {
     const newNode = new Node(val);
