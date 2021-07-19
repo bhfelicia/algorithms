@@ -23,4 +23,16 @@ class BinarySearchTree {
       return root.right.insert(num, root.right);
     }
   }
+  find(val) {
+    let curr = this;
+    while (curr) {
+      if (curr.value === val) return true;
+      if (val < curr.value) {
+        curr = curr.left;
+      } else {
+        curr = curr.right;
+      }
+    }
+    return false;
+  }
 }
