@@ -35,4 +35,19 @@ class BinarySearchTree {
     }
     return false;
   }
+  bfs() {
+    const queue = [this];
+    const visited = [];
+    while (queue.length) {
+      const curr = queue.shift();
+      visited.push(curr);
+      if (curr.left) {
+        queue.unshift(curr.left);
+      }
+      if (curr.right) {
+        queue.unshift(curr.right);
+      }
+    }
+    return visited;
+  }
 }
