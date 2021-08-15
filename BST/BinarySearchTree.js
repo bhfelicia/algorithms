@@ -6,6 +6,7 @@ class BinarySearchTree {
     this.magnitude = 1;
   }
   insert(num, root = this) {
+    console.log("INSERTING NEW NUMBER: ", num);
     const newNode = new BinarySearchTree(num);
     ++this.magnitude;
     if (num < root.value && !root.left) {
@@ -50,4 +51,23 @@ class BinarySearchTree {
     }
     return visited;
   }
+  dfsPreOrder(root = this, nodes = []) {
+    nodes.push(root.value);
+    if (root.left) {
+      root.left.dfsPreOrder(root.left, nodes);
+    }
+    if (root.right) {
+      root.right.dfsPreOrder(root.right, nodes);
+    }
+    return nodes;
+  }
 }
+const bst = new BinarySearchTree();
+bst.insert(10);
+bst.insert(15);
+bst.insert(6);
+bst.insert(3);
+bst.insert(8);
+bst.insert(20);
+
+console.log(bst.bfs());
