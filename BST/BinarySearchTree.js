@@ -6,7 +6,6 @@ class BinarySearchTree {
     this.magnitude = 1;
   }
   insert(num, root = this) {
-    console.log("INSERTING NEW NUMBER: ", num);
     const newNode = new BinarySearchTree(num);
     ++this.magnitude;
     if (num < root.value && !root.left) {
@@ -70,4 +69,4 @@ bst.insert(3);
 bst.insert(8);
 bst.insert(20);
 
-console.log(bst.bfs());
+console.log(bst.dfsPreOrder());
