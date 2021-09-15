@@ -22,9 +22,56 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
+  dfs(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList;
+    const helper = (vtx) => {
+      if (!vtx) return null;
+      visited[vtx] = true;
+      result.push(vtx);
+      for (let i = 0; i < adjacencyList[vtx].length; i++) {
+        const curr = adjacencyList[vtx][i];
+        if (!visited[curr]) {
+          return helper(curr);
+        }
+      }
+    };
+    helper(start);
+    return result;
+  }
+  bfs(start) {
+    const queue = [start];
+    const result = [];
+    const visited = {};
+    while (queue.length) {
+      const vtx = queue.shift();
+      result.push(vtx);
+      visited[vtx] = true;
+      this.adjacencyList[vtx].forEach((vertex) => {
+        if (!visited[vertex]) {
+          visited[vertex] = true;
+          queue.push(vertex);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
+g.addVertex(2);
+g.addVertex(3);
+g.addVertex(5);
+g.addVertex(9);
+
+g.addEdge(2, 3);
+g.addEdge(5, 9);
+g.addEdge(9, 2);
+g.addEdge(3, 5);
+
+console.log(g.bfs(2));
+
 //vertex = node
 //edge = connection between nodes
 //weighted/unweighted
@@ -34,3 +81,5 @@ let g = new Graph();
 //directed - nodes have polarity
 //edges represent connections and vertices represent points on a plane
 //weighted graph has value edges represent.
+//depth-first traversal - visit children before siblings - moving away from root
+//must remember where we've been - keep track so we don't go in circles
